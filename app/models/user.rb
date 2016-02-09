@@ -63,15 +63,15 @@ class User < ActiveRecord::Base
     self.select("COUNT(*) AS user_count, cities.name").joins("JOIN addresses ON addresses.user_id = users.id").joins("JOIN cities ON cities.id = addresses.city_id").group("cities.name").order("user_count DESC").limit(3)
   end
 
-  # def self.user_data
-  #   self.select("users.id AS ID, users.first_name AS Name, users.created_at AS Joined, cities.name AS City, states.name AS state, COUNT(orders.id) AS Orders").
-  #   joins("JOIN addresses ON addresses.id = users.billing_id").
-  #   joins("JOIN cities ON addresses.city_id = cities.id").
-  #   joins("JOIN states ON addresses.state_id = states.id").
-  #   joins("JOIN orders ON orders.user_id = users.id").
-  #   group("users.id, city, state").
-  #   order("ID")
-  # end
+  def self.user_data
+    self.select("users.id AS ID, users.first_name AS Name, users.created_at AS Joined, cities.name AS City, states.name AS state, COUNT(orders.id) AS Orders").
+    joins("JOIN addresses ON addresses.id = users.billing_id").
+    joins("JOIN cities ON addresses.city_id = cities.id").
+    joins("JOIN states ON addresses.state_id = states.id").
+    joins("JOIN orders ON orders.user_id = users.id").
+    group("users.id, city, state").
+    order("ID")
+  end
 
 
   def self.last_order_date(id)

@@ -12,12 +12,12 @@ development:
 
 development:
   <<: *default
-  database: project_viking_store_dev
+  database: viking_admin_dev
 
 test:
   <<: *default
-  database: project_viking_store_test
+  database: viking_admin_test
 
 production:
   <<: *default
-  database: project_viking_store
+  database: viking_admin_prodrake
