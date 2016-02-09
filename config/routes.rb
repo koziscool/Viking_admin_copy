@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  root 'dashboards#index'
+  root 'admin#new'
+  resources :dashboards
+  resources :admin
+  resources :categories
+  resources :products
+  resources :addresses, only: [:index]
+  resources :orders, only: [:index]
+  resources :users do
+    resources :credit_cards, only: [:destroy]
+    resources :addresses
+    resources :orders
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
