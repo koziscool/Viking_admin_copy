@@ -1,0 +1,77 @@
+
+<section id="top-bar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/products">
+          Viking Store
+        </a>
+      </div>
+      <div class="navbar-right">
+        <ul class="nav navbar-nav">
+          <li><img alt="my boat" src="/assets/logo_ship_90.png"></li>
+          <li><ul class='nav'>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Sign In</a></li>
+          </ul></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<section id="page-title">
+  <h1 class="text-center">The Viking Store</h1>
+</section>
+
+<section id="page-subtitle">
+  <h4 class="text-center">The Best Viking Gear on the Whole Web</h4>
+  <h6 class="text-center">Choose from among out lineup of fine items below</h6>
+
+</section>
+
+<section id="page-content">
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-8">
+        <%= "Category Filter: #{category_name( params[:product_category] )}" %>
+        <%= form_for :product_category, url: products_path, html: { method: 'GET' } do |f| %>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: "All"}, {}) %>
+
+          <%= f.submit "Apply Filter" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <% products = procucts_for_category(params[:product_category]) %>
+      <% products.each do |product| %>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title text-center">
+                <%= link_to "#{product.name}", product_path(product) %>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <img alt="my boat" src="/assets/logo_ship_90.png">
+            </div>
+            <div class="panel-footer">
+              <%= form_for :shopping_cart do |f| %>
+                <%= f.submit "Add to Cart" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+  </div>
+</section>
+
+<section id="bottom-bar">
+
+</section>
