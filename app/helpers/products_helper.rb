@@ -1,7 +1,7 @@
 module ProductsHelper
 
 
-  def procucts_for_category(c)
+  def products_for_category(c)
     if c.nil? || c['category_id'] == ""
       Product.all
     else
