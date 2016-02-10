@@ -20,4 +20,4 @@ test:
 
 production:
   <<: *default
-  database: viking_admin_prodrake
+  database: viking_admin_prod

@@ -11,7 +11,7 @@
       Customer ID: <%= @user.id %>
     </p>
     <p>
-      Customer: <%= link_to "View #{@user.first_name}", user_path(@user) %>
+      Customer: <%= link_to "View #{@user.first_name}", admin_user_path(@user) %>
     </p>
     <p>
       Date Placed: <%= @order.created_at %>
@@ -23,7 +23,7 @@
       Order Value: <%= @order.total_value %>
     </p>
     <p>
-      <%= link_to "Edit Customer Profile", edit_user_path(@user) %>
+      <%= link_to "Edit Customer Profile", edit_admin_user_path(@user) %>
     </p>
   </div>
 

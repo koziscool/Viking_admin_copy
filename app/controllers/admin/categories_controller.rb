@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < AdminController
 
   def index
     @categories = Category.all
@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(whitelisted_params)
     if @category.save
       flash.notice = "You created Category"
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     if @category.update(whitelisted_params)
       flash.notice = "You updated Category"
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     if @category.destroy
       flash.notice = "You deleted Category"
-      redirect_to categories_path
+      redirect_to admin_categories_path
     end
   end
 

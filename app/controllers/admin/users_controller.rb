@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Admin::UsersController < AdminController
 
   def index
     @users = User.all
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(whitelisted_params)
     if @user.save
       flash.notice = "You created User"
-      redirect_to user_path(@user)
+      redirect_to admin_user_path(@user)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
     if @user.update(whitelisted_params)
       flash.notice = "You updated User"
-      redirect_to user_path(@user)
+      redirect_to admin_user_path(@user)
     else
       flash.now.notice = "It failed to update"
       render :edit
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
     @user.destroy
     flash.notice = "You deleted User"
-    redirect_to users_path
+    redirect_to admin_users_path
   end
 
 

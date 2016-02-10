@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
   root 'admin#new'
   resources :dashboards
-  resources :admin
-  resources :categories
-  resources :products
-  resources :addresses, only: [:index]
-  resources :orders, only: [:index]
-  resources :users do
-    resources :credit_cards, only: [:destroy]
-    resources :addresses
-    resources :orders
+  #resources :admin
+
+  namespace :admin do
+    resources :users do
+      resources :credit_cards, only: [:destroy]
+      resources :addresses
+      resources :orders
+    end
+    resources :products
+    resources :categories
+    resources :orders, only: [:index]
+    resources :addresses, only: [:index]
   end
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

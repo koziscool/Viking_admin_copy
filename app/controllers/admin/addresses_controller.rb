@@ -29,7 +29,7 @@ class AddressesController < ApplicationController
 
     if @address.save
       flash.notice = "You successfully created an address"
-      redirect_to user_addresses_path(@user, @address)
+      redirect_to admin_user_addresses_path(@user, @address)
     else
 
     end
@@ -51,14 +51,14 @@ class AddressesController < ApplicationController
     @address.zip_code = "12345"
     # @address.update_name(whitelisted_params[:city][:name], whitelisted_params[:state][:name])
     @address.update(whitelisted_params)
-    redirect_to user_addresses_path(@user)
+    redirect_to admin_user_addresses_path(@user)
   end
 
   def destroy
     @user = User.find(params[:user_id])
     @address.find(params[:id])
     @address.destroy
-    redirect_to user_addresses_path(@user)
+    redirect_to admin_user_addresses_path(@user)
   end
 
   private

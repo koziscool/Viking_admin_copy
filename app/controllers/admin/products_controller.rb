@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
   def index
     @products = Product.all
     @product_categories = Product.find_categories
@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     @product = Product.new(whitelisted_params)
     if @product.save
       flash.notice = "You created a product"
-      redirect_to products_path
+      redirect_to admin_products_path
     else
 
     end
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.update(whitelisted_params)
       flash.notice = "You updated your product"
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       flash.notice = "It didn't update"
       render :edit
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
     @product_destroy
     flash.notice = "You destroyed the product"
-    redirect_to products_path
+    redirect_to admin_products_path
   end
 
 

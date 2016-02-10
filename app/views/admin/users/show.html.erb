@@ -31,9 +31,9 @@
     <% end %>
   </div>
   <div class="row">
-    <p><%= link_to "Edit #{@user.first_name}'s information", edit_user_path(@user) %></p>
-   <p> <%= link_to "Delete #{@user.first_name}'s information", @user, method: :delete, data: {confirm: "Are you sure?"} %></p>
-    <p><%= link_to "view saved addresses", user_addresses_path(@user) %></p>
+    <p><%= link_to "Edit #{@user.first_name}'s information", edit_admin_user_path(@user) %></p>
+   <p> <%= link_to "Delete #{@user.first_name}'s information", admin_user_path(@user), method: :delete, data: {confirm: "Are you sure?"} %></p>
+    <p><%= link_to "view saved addresses", admin_user_addresses_path(@user) %></p>
     <p><%= link_to "view shopping cart" %></p>
   </div>
 </div>
@@ -49,7 +49,7 @@
       <p>Number: <%= @user.credit_card.card_number %></p>
       <p>Expiration: <%= @user.credit_card.exp_year %>-<%= @user.credit_card.exp_month %></p>
       <p>CV2: <%= @user.credit_card.ccv %></p>
-      <%= link_to "Remove Card", user_credit_card_path(@user.id, @user.credit_card), method: :delete, data: {confirm: "Are you sure?"} %>
+      <%= link_to "Remove Card", admin_user_credit_card_path(@user.id, @user.credit_card), method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   <% end %>
 </div>
