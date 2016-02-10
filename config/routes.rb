@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources   :products,  :only => [:index, :show ]
-  #resources :admin
+
 
   namespace :admin do
     resources :users do
