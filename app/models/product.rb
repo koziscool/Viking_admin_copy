@@ -24,14 +24,14 @@ class Product < ActiveRecord::Base
 
   def self.find_category(product)
     self.select("categories.name AS name").
-    joins("JOIN categories ON categories.id = products.category_id").
-    where("products.id = #{product.id}")
+    joins("JOIN categories ON categories.id = products.category_id")
+    .where("products.id = #{product.id}")
   end
 
   def self.find_categories
     self.select("categories.name AS name, categories.id AS id").
-    joins("JOIN categories ON categories.id = products.category_id").
-    order("products.id")
+    joins("JOIN categories ON categories.id = products.category_id")
+    .order("products.id")
   end
 
   def self.find_orders(product)

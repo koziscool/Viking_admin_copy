@@ -40,12 +40,15 @@
               <td><%= user.joined.strftime("%Y-%m-%d") %></td>
               <td><%= user.city %></td>
               <td><%= user.state %></td>
-              <td><%= user.orders %></td>
+              <td><%= user.orders.size %></td>
               <td>
                 <% unless @last_date[user.id][0].nil? %>
                   <%= @last_date[user.id][0].date.strftime("%Y-%m-%d") %>
                 <% end %>
               </td>
+              <td><%= link_to "Show", admin_user_path(user) %></td>
+              <td><%= link_to "Edit", edit_admin_user_path(user) %></td>
+              <td><%= link_to "Delete", admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"} %></td>
             </tr>
           <% end %>
     

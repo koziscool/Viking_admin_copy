@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'admin#new'
   resources :dashboards
+
+  resource :session, :only => [:new, :create, :destroy]
+  resources   :products,  :only => [:index, :show ]
   #resources :admin
 
   namespace :admin do
@@ -14,7 +17,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:index]
     resources :addresses, only: [:index]
   end
-  
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -30,7 +34,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+ 
   # Example resource route with options:
   #   resources :products do
   #     member do
