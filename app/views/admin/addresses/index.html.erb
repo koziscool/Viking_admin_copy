@@ -17,7 +17,7 @@
       <% if defined?(@user) %>
         <div class="text-center">
           <h2><%= @user.first_name %> <%= @user.last_name %>'s Address</h2>
-          <%= link_to "Create #{@user.first_name} #{@user.last_name}'s Address", new_user_address_path(@user), class: "btn btn-primary btn-lg" %>
+          <%= link_to "Create #{@user.first_name} #{@user.last_name}'s Address", new_admin_user_address_path(@user), class: "btn btn-primary btn-lg" %>
         </div>
       <% else %>
         <div class="text-center">

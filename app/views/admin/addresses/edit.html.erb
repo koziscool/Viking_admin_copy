@@ -5,9 +5,9 @@
 
  <div class="row">
 
-  <%= form_for [@user, @address] do |f| %>
+  <%= form_for [:admin, @user, @address] do |f| %>
     <p>Owner ID: <%= @user.id %></p>
-    <p>Owner Name: <%= link_to "#{@user.first_name} #{@user.last_name}(click to view)", @user %></p>
+    <p>Owner Name: <%= link_to "#{@user.first_name} #{@user.last_name}(click to view)", admin_user_path(@user) %></p>
     <p>
       <%= f.label :street_address %>
       <%= f.text_field :street_address %>

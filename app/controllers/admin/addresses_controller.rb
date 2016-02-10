@@ -49,8 +49,10 @@ class Admin::AddressesController < AdminController
     @user = User.find(params[:user_id])
     @address = Address.find(params[:id])
     @address.zip_code = "12345"
-    # @address.update_name(whitelisted_params[:city][:name], whitelisted_params[:state][:name])
-    @address.update(whitelisted_params)
+    @address.update_name(whitelisted_params[:city][:name], whitelisted_params[:state][:name])
+    # @address.update(whitelisted_params)
+    # @address.update
+    @address.save
     redirect_to admin_user_addresses_path(@user)
   end
 
