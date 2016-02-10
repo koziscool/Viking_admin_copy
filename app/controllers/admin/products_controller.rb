@@ -1,4 +1,6 @@
 class Admin::ProductsController < AdminController
+  layout "admin"
+  
   def index
     @products = Product.all
     @product_categories = Product.find_categories

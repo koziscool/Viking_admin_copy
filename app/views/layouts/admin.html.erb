@@ -8,7 +8,26 @@
 </head>
 <body>
 <%= render partial: 'flash' %>
-<%= yield %>
+
+<div class="container">
+  <div class="row text-center">
+    <h1>Viking Store Admin Portal</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2">
+      <h4>Navigation Options</h4>
+      <div><%= link_to "Users", admin_users_path %></div>
+      <div><%= link_to "Addresses", admin_addresses_path %></div>
+      <div><%= link_to "Orders", admin_orders_path %></div>
+      <div><%= link_to "Products", admin_products_path %></div>
+      <div><%= link_to "Categories", admin_categories_path %></div>
+    </div>
+
+    <%= yield %>
+
+  </div>
+</div>
 
 </body>
 </html>

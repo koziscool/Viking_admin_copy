@@ -1,5 +1,5 @@
 class Admin::AddressesController < AdminController
-
+  layout "admin"
   def index
     if params[:user_id]
       if User.exists?(params[:user_id])
