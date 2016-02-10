@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
   def new
   end
@@ -23,13 +23,13 @@ class SessionController < ApplicationController
 
   # Sign out our user to destroy a session
   def destroy
-  #   if sign_out
-  #     flash[:success] = "You have successfully signed out"
-  #     redirect_to root_path
-  #   else
-  #     flash[:error] = "Angry robots have prevented you from signing out.  You're stuck here forever."
-  #     redirect_to root_path
-  #   end
-  # end
+    if sign_out
+      flash[:success] = "You have successfully signed out"
+      redirect_to root_path
+    else
+      flash[:error] = "Angry robots have prevented you from signing out.  You're stuck here forever."
+      redirect_to root_path
+    end
+  end
 
 end
