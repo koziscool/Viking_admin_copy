@@ -16,7 +16,7 @@
         <h3>Product Statistics</h3>
         <p>Times Ordered: <%= @product_orders[0].num_orders %></p>
         <p>Carts In: <%= @product_carts[0].cart_orders %></p>
-        <p><%= link_to "Edit product", edit_product_path(@product) %></p>
+        <p><%= link_to "Edit product", edit_admin_product_path(@product) %></p>
         <p><%= link_to "Delete product", @product, method: :delete, data: {confirm: "Are you sure?"} %></p>
       </div>
     </div>
