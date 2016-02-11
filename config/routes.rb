@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources   :products,  :only => [:index, :show ]
+  get 'products/cart', to: 'products#cart', as: :cart
 
 
   namespace :admin do
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
       resources :orders
     end
     resources :products
+
     resources :categories
     resources :orders, only: [:index]
     resources :addresses, only: [:index]

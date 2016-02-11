@@ -11,5 +11,8 @@ class ProductsController < ApplicationController
   end
 
 
+  def cart
+    render :cart
+  end
 
 end
