@@ -11,7 +11,7 @@ module ProductsHelper
 
   def category_name(c)
     if c.nil? || c['category_id'].empty?
-      "All"
+      "All products"
     else
       "#{Category.find(c['category_id']).name}"
     end

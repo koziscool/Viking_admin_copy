@@ -10,4 +10,6 @@ class ProductsController < ApplicationController
     puts @product.name
   end
 
+
+
 end

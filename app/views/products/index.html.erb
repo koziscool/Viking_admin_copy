@@ -12,8 +12,14 @@
           <li><img alt="my boat" src="/assets/logo_ship_90.png"></li>
           <li><ul class='nav'>
             <li><a href="#">Cart</a></li>
-            <li><a href="#">Sign In</a></li>
-          </ul></li>
+
+            <% if signed_in_user? %>
+              <li><%= link_to "Sign Out", session_path, method: "DELETE" %></li>
+            <% else %>
+              <li><%= link_to "Sign In", new_session_path %></li>
+            <% end %>
+          </li>
+          </ul>
         </ul>
       </div>
     </div>
@@ -59,7 +65,7 @@
               <img alt="my boat" src="/assets/logo_ship_90.png">
             </div>
             <div class="panel-footer">
-              <%= form_for :shopping_cart do |f| %>
+              <%= form_for product do |f| %>
                 <%= f.submit "Add to Cart" %>
               <% end %>
             </div>

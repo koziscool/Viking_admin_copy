@@ -5,12 +5,10 @@ class ApplicationController < ActionController::Base
 
   def sign_in(user)
     session[:current_user_id] = user.id
-    current_user = user
-  end
-
+    @current_user = user 
   def sign_out
     session.delete(:current_user_id)
-    current_user = nil
+    @current_user = nil  
     session[:current_user_id].nil? && current_user.nil?
   end
 
@@ -25,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def signed_in_user?
-    !!current_user
+    !!current_user   
   end
   helper_method :signed_in_user?
 
